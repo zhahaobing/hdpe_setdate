@@ -10,6 +10,18 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    this->resize( QSize( 1200, 750 ));
+
+    pHandleDocx = new pthread_readdoc();
+
+    QStringList sListHeader;
+    sListHeader<< tr("地址") << tr("参数设置") << tr("定值设置");
+    ui->tableWidget->setColumnCount(sListHeader.size());
+    ui->tableWidget->setRowCount(10000000);
+
+    ui->tableWidget->setHorizontalHeaderLabels(sListHeader);
+    //ui->tableWidget->setItemDelegate(&settings_combox);
+    ui->tableWidget->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
 
 }
 
@@ -34,7 +46,7 @@ void MainWindow::on_actionopenfile_triggered()
 
     g_szSetdataFilepath.clear();
 
-    aFileName = QFileDialog::getOpenFileName(this,tr("打开一个定制单word文档"),curPath,
+    aFileName = QFileDialog::getOpenFileName(this,tr("打开一个定制单word文档"),curPath, \
                                                         "WORD文件(*.doc;*.docx)");
 
     if (aFileName.isEmpty())
@@ -45,5 +57,7 @@ void MainWindow::on_actionopenfile_triggered()
         return;
     }
     g_szSetdataFilepath = aFileName;
+
+    pHandleDocx->start();
 }
 

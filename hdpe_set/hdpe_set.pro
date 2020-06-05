@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += axcontainer
 RC_ICONS = ./HDPE.ico
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
@@ -20,10 +21,12 @@ VERSION = "1.0.0"
 
 SOURCES += \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    pthread_readdoc.cpp
 
 HEADERS += \
-    mainwindow.h
+    mainwindow.h \
+    pthread_readdoc.h
 
 FORMS += \
     mainwindow.ui
