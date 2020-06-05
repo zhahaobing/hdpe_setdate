@@ -3,7 +3,8 @@
 #include    "mainwindow.h"
 #include    "ui_mainwindow.h"
 
-QString     g_szSetdataFilepath;    //定制单文件绝对路径
+QString     g_szSetdataFilepath = "";    //定制单文件绝对路径
+QMap<QString, SETITEM> g_mapSetItem;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -57,6 +58,9 @@ void MainWindow::on_actionopenfile_triggered()
         return;
     }
     g_szSetdataFilepath = aFileName;
+
+    //线程开始之前清除一下缓存
+    g_mapSetItem.clear();
 
     pHandleDocx->start();
 }

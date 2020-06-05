@@ -13,6 +13,7 @@ public:
 private:
     void    run() Q_DECL_OVERRIDE;//线程任务
     bool    parse_docxfile();//解析定制单word文件
+    QString remove_enterline(QString str);
 
 };
 
