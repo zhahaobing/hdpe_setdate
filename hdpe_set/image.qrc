@@ -1,8 +1,0 @@
-<RCC>
-    <qresource prefix="/new/prefix1">
-        <file>image/openfile.bmp</file>
-    </qresource>
-    <qresource prefix="/">
-        <file>image/back01.jpg</file>
-    </qresource>
-</RCC>

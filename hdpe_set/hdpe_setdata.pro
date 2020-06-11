@@ -12,24 +12,28 @@ CONFIG += c++11
 # deprecated API in order to know how to port your code away from it.
 DEFINES += QT_DEPRECATED_WARNINGS
 
-VERSION = "1.0.0"
-
 # You can also make your code fail to compile if it uses deprecated APIs.
 # In order to do so, uncomment the following line.
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    log_windows.cpp \
     main.cpp \
     mainwindow.cpp \
-    pthread_readdoc.cpp
+    pthread_readdoc.cpp \
+    qformtable_file.cpp
 
 HEADERS += \
+    log_windows.h \
     mainwindow.h \
-    pthread_readdoc.h
+    pthread_readdoc.h \
+    qformtable_file.h
 
 FORMS += \
-    mainwindow.ui
+    log_windows.ui \
+    mainwindow.ui \
+    qformtable_file.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -37,4 +41,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 RESOURCES += \
-    image.qrc
+    rec.qrc
+
+

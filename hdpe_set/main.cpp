@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
     MainWindow w;
     static const QDate buildDate = QLocale(QLocale::English).toDate(QString(__DATE__).replace("  "," 0"),"MMM dd yyyy");
     static const QTime buildTime = QTime::fromString(__TIME__, "hh:mm:ss");
-    QString wTitle = "HDPE定值计算专用软件";
+    QString wTitle = "HDPE定值计算专用软件-";
     wTitle += buildDate.toString("yyyyMMdd") + buildTime.toString("hhmm");
     w.setWindowTitle(wTitle);
 

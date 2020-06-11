@@ -4,18 +4,24 @@
 #include    "pthread_readdoc.h"
 #include    "mainwindow.h"
 
+#define     OPENFILE_MAX    16          //最大支持同时打开16个文件
+
 static int      g_snBeginReadSet = 0;       //开始读取定值的标志
-extern QString  g_szSetdataFilepath;    //定制单文档名,带绝对路径
-extern QMap<QString, SETITEM> g_mapSetItem;
+extern QString  g_szSetdataFilepath[OPENFILE_MAX];        //定制单文档名,带绝对路径
+extern QMap<QString, SETITEM> g_mapSetItem[OPENFILE_MAX];
 
-pthread_readdoc::pthread_readdoc()
+pthread_readdoc::pthread_readdoc(int nFileIndex)
 {
-
+    if(nFileIndex >= 0 && nFileIndex < 16)
+    {
+        g_nFileIndex = nFileIndex;//该线程处理的定值单文件在数组xx中的索引，初始化为-1。
+    }
 }
 
 void pthread_readdoc::run()
 {//线程任务
-    QString szLogInfo;
+    //QString szLogInfo;
+
     if(!parse_docxfile())
     {
         goto ERR_RESULT;
@@ -31,6 +37,7 @@ bool pthread_readdoc::parse_docxfile()
     QAxObject   *myword     = new QAxObject(this);
     QAxObject   *workbooks;
     qDebug() << g_szSetdataFilepath << ",at line" << __LINE__ << ".";
+    QString     szLogInfo;
 
     if (myword->setControl("Word.Application"))
     {
@@ -45,8 +52,9 @@ bool pthread_readdoc::parse_docxfile()
     workbooks = myword->querySubObject("Documents");
 
     //通过Document打开要获取文件内容的文件
-    g_szSetdataFilepath = g_szSetdataFilepath.replace("/", "\\");
-    workbooks->dynamicCall("Open(const QString &)", g_szSetdataFilepath);
+    SetdataFilepath = g_szSetdataFilepath[g_nFileIndex];
+    SetdataFilepath = SetdataFilepath.replace("/", "\\");
+    workbooks->dynamicCall("Open(const QString &)", SetdataFilepath);
 
     //获取当前活动的Document
     QAxObject *document = myword->querySubObject("ActiveDocument");
@@ -206,7 +214,7 @@ bool pthread_readdoc::parse_docxfile()
             if(setItemTmp.set_addr.length() > 0 &&
                setItemTmp.set_name.length() > 0 &&
                setItemTmp.set_value.length() > 0) {
-                g_mapSetItem.insert(QString::asprintf("%08d",ipar) ,setItemTmp);
+                g_mapSetItem[g_nFileIndex].insert(QString::asprintf("%08d",ipar) ,setItemTmp);
             }
 //            qDebug()<< "set_addr"<< setItemTmp.set_addr << ",at line " << __LINE__;
 //            qDebug()<< "set_name"<< setItemTmp.set_name << ",at line " << __LINE__;
@@ -243,16 +251,17 @@ bool pthread_readdoc::parse_docxfile()
     g_snBeginReadSet = 0;
 
     QMap<QString, SETITEM>::const_iterator iter_column;
-    for(iter_column=g_mapSetItem.constBegin(); iter_column != g_mapSetItem.constEnd(); iter_column++)
+    for(iter_column=g_mapSetItem[g_nFileIndex].constBegin(); iter_column != g_mapSetItem[g_nFileIndex].constEnd(); iter_column++)
     {
         qDebug() << iter_column.value().set_addr << iter_column.value().set_name << iter_column.value().set_value << ",at line " << __LINE__;
     }
 
     qDebug()<< "over!!!";
+    szLogInfo = tr("文件") + SetdataFilepath + tr("读取结束！");
+    ReaddocSendMsgToMain("over", g_nFileIndex);
 
     return true;
 }
-
 
 /******************************************************************************
  * 函数：remove_enterline
