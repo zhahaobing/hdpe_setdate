@@ -67,7 +67,7 @@
   <action name="action_file">
    <property name="icon">
     <iconset resource="rec.qrc">
-     <normaloff>:/images/images/804.bmp</normaloff>:/images/images/804.bmp</iconset>
+     <normaloff>:/images/images/Doc.ico</normaloff>:/images/images/Doc.ico</iconset>
    </property>
    <property name="text">
     <string>文件</string>
@@ -79,7 +79,7 @@
   <action name="action_database">
    <property name="icon">
     <iconset resource="rec.qrc">
-     <normaloff>:/images/images/514.bmp</normaloff>:/images/images/514.bmp</iconset>
+     <normaloff>:/images/images/Excel.ico</normaloff>:/images/images/Excel.ico</iconset>
    </property>
    <property name="text">
     <string>数据库</string>
@@ -101,6 +101,10 @@
    </property>
   </action>
   <action name="action_help">
+   <property name="icon">
+    <iconset resource="rec.qrc">
+     <normaloff>:/images/images/about.ico</normaloff>:/images/images/about.ico</iconset>
+   </property>
    <property name="text">
     <string>关于</string>
    </property>

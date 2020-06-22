@@ -32,5 +32,25 @@
         <file>images/back01.jpg</file>
         <file>images/Doc.ico</file>
         <file>images/Excel.ico</file>
+        <file>images/about.ico</file>
+        <file>images/back02.jpg</file>
+        <file>images/back03.jpg</file>
+        <file>images/back04.jpg</file>
+        <file>images/back05.jpg</file>
+        <file>images/back06.jpg</file>
+        <file>images/back07.jpg</file>
+        <file>images/back08.jpg</file>
+        <file>images/back09.jpg</file>
+        <file>images/back10.jpg</file>
+        <file>images/back11.jpg</file>
+        <file>images/back12.jpg</file>
+        <file>images/back13.jpg</file>
+        <file>images/back14.jpg</file>
+        <file>images/back15.jpg</file>
+        <file>images/back16.jpg</file>
+        <file>images/back17.jpg</file>
+        <file>images/back18.jpg</file>
+        <file>images/back19.jpg</file>
+        <file>images/back20.jpg</file>
     </qresource>
 </RCC>
