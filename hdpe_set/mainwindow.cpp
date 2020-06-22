@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->resize( QSize( 1200, 750 ));
 
+    picFileIndex = 0;
+
     ui->tabWidget->setVisible(false);
     ui->tabWidget->clear();//清除所有页面
     ui->tabWidget->tabsClosable(); //Page有关闭按钮，可被关闭
@@ -43,11 +45,19 @@ void MainWindow::paintEvent(QPaintEvent *event)
 { //绘制窗口背景图片
     Q_UNUSED(event);
     QPainter painter(this);
+    if(picFileIndex <= 0)
+    {
+        qsrand(time(NULL));
+        picFileIndex = (qrand() % 20) + 1;    //产生1-20的随机数
+        //qDebug() << "picFileIndex:" << picFileIndex << "at line " << __LINE__;
+    }
+    QString picFile = ":/images/images/";
+    picFile += QString::asprintf("back%02d.jpg", picFileIndex);
 
     //this->height()-ui->toolBar->height()-ui->statusbar->height()
     painter.drawPixmap(0,ui->toolBar->height(),this->width(),
                        this->height()-ui->toolBar->height()-ui->statusbar->height(),
-                       QPixmap(":/images/images/back01.jpg"));
+                       QPixmap(picFile));
 }
 
 /******************************************************************************
