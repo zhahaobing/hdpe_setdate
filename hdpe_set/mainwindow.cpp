@@ -2,6 +2,8 @@
 #include    <QFileDialog>
 #include    <QMessageBox>
 #include    <qDebug>
+#include    <QTime>
+#include    <QTimer>
 #include    "mainwindow.h"
 #include    "ui_mainwindow.h"
 
