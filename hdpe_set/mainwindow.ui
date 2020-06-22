@@ -102,7 +102,7 @@
   </action>
   <action name="action_help">
    <property name="text">
-    <string>帮助</string>
+    <string>关于</string>
    </property>
    <property name="toolTip">
     <string>帮助</string>

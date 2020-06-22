@@ -25,6 +25,8 @@ private slots:
     void recvFromFormTable(QString msg, int flag);
     void recvFromThreaddoc(QString msg, int flag);
 
+    void on_action_help_triggered();
+
 private:
     Ui::MainWindow *ui;
     pthread_readdoc *pHandleDocx[OPENFILE_MAX];

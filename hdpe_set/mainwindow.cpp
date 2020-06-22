@@ -139,15 +139,18 @@ void MainWindow::recvFromThreaddoc(QString msg, int flag)
 
 }
 
+//帮助按钮
+void MainWindow::on_action_help_triggered()
+{
+    QString szHelp = tr("帮助");
+    QString szInfo = tr("开发人员");
+    szInfo += ":zhahaobing@126.com";
+    szInfo += "<br>";
+    szInfo += tr("版本");
+    szInfo += ":0.0.2";
+    szInfo += "<br>";
+    szInfo += tr("日期");
+    szInfo += ":2020-06-14";
 
-
-
-
-
-
-
-
-
-
-
-
+    QMessageBox::about(this, szHelp, "<font color='red'>" + szInfo +"</font>");
+}
