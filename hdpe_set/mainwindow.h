@@ -27,11 +27,15 @@ private slots:
 
     void on_action_help_triggered();
 
+    void    removeSubTab(int index);
+
 private:
     Ui::MainWindow *ui;
     int     picFileIndex = 0;
-    pthread_readdoc *pHandleDocx[OPENFILE_MAX];
-    QFormTable_File *formTable_file[OPENFILE_MAX];
+    QList<QString>   tabWidgetList;//tab的索引链表
+
+    pthread_readdoc     *pHandleDocx[OPENFILE_MAX];
+    QFormTable_File     *formTable_file[OPENFILE_MAX];
     void    paintEvent(QPaintEvent *event);
     int     searchMinIndex();
 

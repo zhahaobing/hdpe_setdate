@@ -1,7 +1,7 @@
 #include    <QPainter>
 #include    <QFileDialog>
 #include    <QMessageBox>
-#include    <qDebug>
+#include    <QDebug>
 #include    <QTime>
 #include    <QTimer>
 #include    "mainwindow.h"
@@ -19,7 +19,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->resize( QSize( 1200, 750 ));
 
+    //这里初始化类成员变量
     picFileIndex = 0;
+    tabWidgetList.clear();
 
     ui->tabWidget->setVisible(false);
     ui->tabWidget->clear();//清除所有页面
@@ -40,6 +42,14 @@ MainWindow::MainWindow(QWidget *parent)
 
 MainWindow::~MainWindow()
 {
+    int i = 0;
+    for(i=0; i< OPENFILE_MAX; i++)
+    {
+        if(NULL != formTable_file[i])
+        {
+            delete formTable_file[i];
+        }
+    }
     delete ui;
 }
 
@@ -87,6 +97,7 @@ void MainWindow::on_action_file_triggered()
     //绑定信号和槽函数
     connect(formTable_file[i], SIGNAL(sendMsgToMain(QString, int)),this,SLOT(recvFromFormTable(QString, int)));
     connect(this, SIGNAL(MainSendMsgToFormTable(QString, int)),formTable_file[i],SLOT(FormTableRecvFromMain(QString, int)));
+    connect(ui->tabWidget,SIGNAL(tabCloseRequested(int)),this,SLOT(removeSubTab(int)));
 
     formTable_file[i]->setAttribute(Qt::WA_DeleteOnClose); //关闭时自动删除
     //    aTable->setWindowTitle("基于QWidget的窗口，无父窗口，关闭时删除");
@@ -95,7 +106,7 @@ void MainWindow::on_action_file_triggered()
               szFile + QString::asprintf(" %d",i + 1));
     ui->tabWidget->setCurrentIndex(cur);
     ui->tabWidget->setVisible(true);
-
+    tabWidgetList.append(QString::asprintf("tab02%d",i + 1));
 }
 
 //寻找最小的未用的index
@@ -116,6 +127,39 @@ int MainWindow::searchMinIndex()
 void MainWindow::recvFromFormTable(QString msg, int flag)
 {
     QString szWarnInfo;
+    int nIndex = msg.toInt();
+
+    switch(nIndex)
+    {
+        case 0:
+        {//关闭事件的信号
+            if(flag < 16 && flag >=0)
+            {
+              if(NULL != formTable_file[flag])
+              {
+                  delete formTable_file[flag];
+                  formTable_file[flag] = NULL;
+              }
+              if(tabWidgetList.isEmpty())
+              {
+                  ui->tabWidget->setVisible(false);
+                  ui->tabWidget->clear();//清除所有页面
+                  tabWidgetList.clear();
+              }
+              tabWidgetList.removeAt(flag);
+            }
+            break;
+        }
+        case 1:
+        {
+            break;
+        }
+        default:
+        {
+            break;
+        }
+    }
+
     if(flag > 16 || flag < 0)
     {
         szWarnInfo = tr("来自错误定值单窗口的信号！");
@@ -123,6 +167,8 @@ void MainWindow::recvFromFormTable(QString msg, int flag)
 
         return;
     }
+
+
 
     g_szSetdataFilepath[flag] = msg;
 
@@ -165,4 +211,27 @@ void MainWindow::on_action_help_triggered()
     szInfo += ":2020-06-14";
 
     QMessageBox::about(this, szHelp, "<font color='red'>" + szInfo +"</font>");
+}
+
+void MainWindow::removeSubTab(int index)
+{
+    QWidget *pItemWidget = ui->tabWidget->widget(index);
+    pItemWidget->close();
+    qDebug() << "index=" << index << "at line " << __LINE__;
+    QString tabName = QString::asprintf("tab%02d", index);
+
+//    if(tabWidgetList[index] == tabName)
+//    {
+//        delete formTable_file[index];
+//        formTable_file[index] = NULL;
+//    }
+//    tabWidgetList.removeAt(index);
+
+//    if(tabWidgetList.isEmpty())
+//    {
+//        ui->tabWidget->setVisible(false);
+//        ui->tabWidget->clear();//清除所有页面
+//        tabWidgetList.clear();
+//    }
+
 }
