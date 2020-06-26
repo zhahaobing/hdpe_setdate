@@ -17,7 +17,7 @@ class QFormTable_File : public QMainWindow
     Q_OBJECT
 
 public:
-    explicit QFormTable_File(QWidget *parent = nullptr, int nIndex = 0);
+    explicit QFormTable_File(QWidget *parent = nullptr);
     ~QFormTable_File();
 
 private slots:
@@ -26,15 +26,14 @@ private slots:
     void scrollCaption();
 
 private:
-    int                 g_nIndex;
-    int                 curIndex;
     QString             szProgress;
     QTimer              *ntimer;
     QStandardItemModel  *theModel;//数据模型
     QItemSelectionModel *theSelection;//Item选择模型
-
+    int                 curIndex;
     Ui::QFormTable_File *ui;
-    void display_setdata(int nIndex);
+    void display_setdata();
+    void closeEvent( QCloseEvent  *event);
 
 signals:
     void sendMsgToMain(QString msg, int clo);//子线程要发射信号给主窗口

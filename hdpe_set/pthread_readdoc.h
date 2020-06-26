@@ -8,10 +8,9 @@ class pthread_readdoc : public QThread
     Q_OBJECT
 
 public:
-    explicit pthread_readdoc(int nFileIndex);
+    explicit pthread_readdoc();
 
 private:
-    int     g_nFileIndex;
     QString SetdataFilepath;
     void    run() Q_DECL_OVERRIDE;//线程任务
     bool    parse_docxfile();//解析定制单word文件

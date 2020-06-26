@@ -6,8 +6,6 @@
 #include    "qformtable_file.h"
 #include    "pthread_readdoc.h"
 
-#define     OPENFILE_MAX    16          //最大支持同时打开16个文件
-
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -34,10 +32,9 @@ private:
     int     picFileIndex = 0;
     QList<QString>   tabWidgetList;//tab的索引链表
 
-    pthread_readdoc     *pHandleDocx[OPENFILE_MAX];
-    QFormTable_File     *formTable_file[OPENFILE_MAX];
+    pthread_readdoc     *pHandleDocx;
+    QFormTable_File     *formTable_file;
     void    paintEvent(QPaintEvent *event);
-    int     searchMinIndex();
 
 signals:
     void MainSendMsgToFormTable(QString msg, int clo);//主窗口发射信号给子线程1
