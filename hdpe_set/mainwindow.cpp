@@ -8,8 +8,9 @@
 #include    "ui_mainwindow.h"
 
 QString     g_szSetdataFilepath;      //定制单文件绝对路径
+BASICITEM   g_FileBasicInfo;          //定值单文件基本信息
 QMap<QString, SETITEM> g_mapSetItem;
-int         g_nFileIndexPool = {0};
+int         g_nFileIndexPool;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -18,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->resize( QSize( 1800, 1200 ));
-
 
     //这里初始化类成员变量
     picFileIndex = 0;

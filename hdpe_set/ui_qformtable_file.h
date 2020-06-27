@@ -53,14 +53,14 @@ public:
     QLabel *label_17;
     QLabel *label_21;
     QVBoxLayout *verticalLayout_7;
-    QLineEdit *lineEdit;
-    QLineEdit *lineEdit_2;
-    QLineEdit *lineEdit_3;
-    QLineEdit *lineEdit_4;
-    QLineEdit *lineEdit_5;
-    QLineEdit *lineEdit_6;
-    QLineEdit *lineEdit_7;
-    QLineEdit *lineEdit_8;
+    QLineEdit *lineEdit__organization;
+    QLineEdit *lineEdit_DeviceID;
+    QLineEdit *lineEdit_DeviceName;
+    QLineEdit *lineEdit_DeviceType;
+    QLineEdit *lineEdit_DeadLine;
+    QLineEdit *lineEdit_DeviceVersionNo;
+    QLineEdit *lineEdit_DeviceSQE;
+    QLineEdit *lineEdit_DeviceIEDAddr;
     QGroupBox *groupBox_4;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
@@ -68,9 +68,9 @@ public:
     QLabel *label_11;
     QLabel *label_12;
     QVBoxLayout *verticalLayout_3;
-    QLineEdit *lineEdit_9;
-    QLineEdit *lineEdit_10;
-    QLineEdit *lineEdit_11;
+    QLineEdit *lineEdit_PortB_IP;
+    QLineEdit *lineEdit_PortB_NetMask;
+    QLineEdit *lineEdit_PortB_Gateway;
     QGroupBox *groupBox_5;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_4;
@@ -78,9 +78,9 @@ public:
     QLabel *label_15;
     QLabel *label_16;
     QVBoxLayout *verticalLayout_5;
-    QLineEdit *lineEdit_12;
-    QLineEdit *lineEdit_13;
-    QLineEdit *lineEdit_14;
+    QLineEdit *lineEdit_PortC_IP;
+    QLineEdit *lineEdit_PortC_NetMask;
+    QLineEdit *lineEdit_PortC_Gateway;
     QStatusBar *statusbar;
     QToolBar *toolBar;
 
@@ -88,7 +88,7 @@ public:
     {
         if (QFormTable_File->objectName().isEmpty())
             QFormTable_File->setObjectName(QString::fromUtf8("QFormTable_File"));
-        QFormTable_File->resize(899, 451);
+        QFormTable_File->resize(535, 605);
         action_open = new QAction(QFormTable_File);
         action_open->setObjectName(QString::fromUtf8("action_open"));
         QIcon icon;
@@ -187,45 +187,45 @@ public:
 
         verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setObjectName(QString::fromUtf8("verticalLayout_7"));
-        lineEdit = new QLineEdit(groupBox_6);
-        lineEdit->setObjectName(QString::fromUtf8("lineEdit"));
+        lineEdit__organization = new QLineEdit(groupBox_6);
+        lineEdit__organization->setObjectName(QString::fromUtf8("lineEdit__organization"));
 
-        verticalLayout_7->addWidget(lineEdit);
+        verticalLayout_7->addWidget(lineEdit__organization);
 
-        lineEdit_2 = new QLineEdit(groupBox_6);
-        lineEdit_2->setObjectName(QString::fromUtf8("lineEdit_2"));
+        lineEdit_DeviceID = new QLineEdit(groupBox_6);
+        lineEdit_DeviceID->setObjectName(QString::fromUtf8("lineEdit_DeviceID"));
 
-        verticalLayout_7->addWidget(lineEdit_2);
+        verticalLayout_7->addWidget(lineEdit_DeviceID);
 
-        lineEdit_3 = new QLineEdit(groupBox_6);
-        lineEdit_3->setObjectName(QString::fromUtf8("lineEdit_3"));
+        lineEdit_DeviceName = new QLineEdit(groupBox_6);
+        lineEdit_DeviceName->setObjectName(QString::fromUtf8("lineEdit_DeviceName"));
 
-        verticalLayout_7->addWidget(lineEdit_3);
+        verticalLayout_7->addWidget(lineEdit_DeviceName);
 
-        lineEdit_4 = new QLineEdit(groupBox_6);
-        lineEdit_4->setObjectName(QString::fromUtf8("lineEdit_4"));
+        lineEdit_DeviceType = new QLineEdit(groupBox_6);
+        lineEdit_DeviceType->setObjectName(QString::fromUtf8("lineEdit_DeviceType"));
 
-        verticalLayout_7->addWidget(lineEdit_4);
+        verticalLayout_7->addWidget(lineEdit_DeviceType);
 
-        lineEdit_5 = new QLineEdit(groupBox_6);
-        lineEdit_5->setObjectName(QString::fromUtf8("lineEdit_5"));
+        lineEdit_DeadLine = new QLineEdit(groupBox_6);
+        lineEdit_DeadLine->setObjectName(QString::fromUtf8("lineEdit_DeadLine"));
 
-        verticalLayout_7->addWidget(lineEdit_5);
+        verticalLayout_7->addWidget(lineEdit_DeadLine);
 
-        lineEdit_6 = new QLineEdit(groupBox_6);
-        lineEdit_6->setObjectName(QString::fromUtf8("lineEdit_6"));
+        lineEdit_DeviceVersionNo = new QLineEdit(groupBox_6);
+        lineEdit_DeviceVersionNo->setObjectName(QString::fromUtf8("lineEdit_DeviceVersionNo"));
 
-        verticalLayout_7->addWidget(lineEdit_6);
+        verticalLayout_7->addWidget(lineEdit_DeviceVersionNo);
 
-        lineEdit_7 = new QLineEdit(groupBox_6);
-        lineEdit_7->setObjectName(QString::fromUtf8("lineEdit_7"));
+        lineEdit_DeviceSQE = new QLineEdit(groupBox_6);
+        lineEdit_DeviceSQE->setObjectName(QString::fromUtf8("lineEdit_DeviceSQE"));
 
-        verticalLayout_7->addWidget(lineEdit_7);
+        verticalLayout_7->addWidget(lineEdit_DeviceSQE);
 
-        lineEdit_8 = new QLineEdit(groupBox_6);
-        lineEdit_8->setObjectName(QString::fromUtf8("lineEdit_8"));
+        lineEdit_DeviceIEDAddr = new QLineEdit(groupBox_6);
+        lineEdit_DeviceIEDAddr->setObjectName(QString::fromUtf8("lineEdit_DeviceIEDAddr"));
 
-        verticalLayout_7->addWidget(lineEdit_8);
+        verticalLayout_7->addWidget(lineEdit_DeviceIEDAddr);
 
 
         horizontalLayout_4->addLayout(verticalLayout_7);
@@ -259,20 +259,20 @@ public:
 
         verticalLayout_3 = new QVBoxLayout();
         verticalLayout_3->setObjectName(QString::fromUtf8("verticalLayout_3"));
-        lineEdit_9 = new QLineEdit(groupBox_4);
-        lineEdit_9->setObjectName(QString::fromUtf8("lineEdit_9"));
+        lineEdit_PortB_IP = new QLineEdit(groupBox_4);
+        lineEdit_PortB_IP->setObjectName(QString::fromUtf8("lineEdit_PortB_IP"));
 
-        verticalLayout_3->addWidget(lineEdit_9);
+        verticalLayout_3->addWidget(lineEdit_PortB_IP);
 
-        lineEdit_10 = new QLineEdit(groupBox_4);
-        lineEdit_10->setObjectName(QString::fromUtf8("lineEdit_10"));
+        lineEdit_PortB_NetMask = new QLineEdit(groupBox_4);
+        lineEdit_PortB_NetMask->setObjectName(QString::fromUtf8("lineEdit_PortB_NetMask"));
 
-        verticalLayout_3->addWidget(lineEdit_10);
+        verticalLayout_3->addWidget(lineEdit_PortB_NetMask);
 
-        lineEdit_11 = new QLineEdit(groupBox_4);
-        lineEdit_11->setObjectName(QString::fromUtf8("lineEdit_11"));
+        lineEdit_PortB_Gateway = new QLineEdit(groupBox_4);
+        lineEdit_PortB_Gateway->setObjectName(QString::fromUtf8("lineEdit_PortB_Gateway"));
 
-        verticalLayout_3->addWidget(lineEdit_11);
+        verticalLayout_3->addWidget(lineEdit_PortB_Gateway);
 
 
         horizontalLayout_2->addLayout(verticalLayout_3);
@@ -306,20 +306,20 @@ public:
 
         verticalLayout_5 = new QVBoxLayout();
         verticalLayout_5->setObjectName(QString::fromUtf8("verticalLayout_5"));
-        lineEdit_12 = new QLineEdit(groupBox_5);
-        lineEdit_12->setObjectName(QString::fromUtf8("lineEdit_12"));
+        lineEdit_PortC_IP = new QLineEdit(groupBox_5);
+        lineEdit_PortC_IP->setObjectName(QString::fromUtf8("lineEdit_PortC_IP"));
 
-        verticalLayout_5->addWidget(lineEdit_12);
+        verticalLayout_5->addWidget(lineEdit_PortC_IP);
 
-        lineEdit_13 = new QLineEdit(groupBox_5);
-        lineEdit_13->setObjectName(QString::fromUtf8("lineEdit_13"));
+        lineEdit_PortC_NetMask = new QLineEdit(groupBox_5);
+        lineEdit_PortC_NetMask->setObjectName(QString::fromUtf8("lineEdit_PortC_NetMask"));
 
-        verticalLayout_5->addWidget(lineEdit_13);
+        verticalLayout_5->addWidget(lineEdit_PortC_NetMask);
 
-        lineEdit_14 = new QLineEdit(groupBox_5);
-        lineEdit_14->setObjectName(QString::fromUtf8("lineEdit_14"));
+        lineEdit_PortC_Gateway = new QLineEdit(groupBox_5);
+        lineEdit_PortC_Gateway->setObjectName(QString::fromUtf8("lineEdit_PortC_Gateway"));
 
-        verticalLayout_5->addWidget(lineEdit_14);
+        verticalLayout_5->addWidget(lineEdit_PortC_Gateway);
 
 
         horizontalLayout_3->addLayout(verticalLayout_5);

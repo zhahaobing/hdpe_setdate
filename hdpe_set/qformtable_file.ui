@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>899</width>
-    <height>451</height>
+    <width>535</width>
+    <height>605</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -136,28 +136,28 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_7">
             <item>
-             <widget class="QLineEdit" name="lineEdit"/>
+             <widget class="QLineEdit" name="lineEdit__organization"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_2"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceID"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_3"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceName"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_4"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceType"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_5"/>
+             <widget class="QLineEdit" name="lineEdit_DeadLine"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_6"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceVersionNo"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_7"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceSQE"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_8"/>
+             <widget class="QLineEdit" name="lineEdit_DeviceIEDAddr"/>
             </item>
            </layout>
           </item>
@@ -198,13 +198,13 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
-             <widget class="QLineEdit" name="lineEdit_9"/>
+             <widget class="QLineEdit" name="lineEdit_PortB_IP"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_10"/>
+             <widget class="QLineEdit" name="lineEdit_PortB_NetMask"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_11"/>
+             <widget class="QLineEdit" name="lineEdit_PortB_Gateway"/>
             </item>
            </layout>
           </item>
@@ -245,13 +245,13 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_5">
             <item>
-             <widget class="QLineEdit" name="lineEdit_12"/>
+             <widget class="QLineEdit" name="lineEdit_PortC_IP"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_13"/>
+             <widget class="QLineEdit" name="lineEdit_PortC_NetMask"/>
             </item>
             <item>
-             <widget class="QLineEdit" name="lineEdit_14"/>
+             <widget class="QLineEdit" name="lineEdit_PortC_Gateway"/>
             </item>
            </layout>
           </item>

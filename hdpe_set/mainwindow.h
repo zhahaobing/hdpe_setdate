@@ -48,4 +48,26 @@ typedef struct _SETITEM
     QString         set_value;          //定值设置
 }SETITEM,*PSETITEM;
 
+typedef struct _BASICITEM
+{//基本参数结构体
+    QString         strOrganization;            //受令单位
+    QString         strDeviceID;                //设备位号
+    QString         strDeviceName;              //设备（装置）名称
+    QString         strDeviceType;              //设备（装置）类型
+    QString         strDeadline;                //更改期限
+    QString         strDeviceVersion;           //装置版本号
+    QString         strDeviceSeqNo;             //装置序列号
+    QString         strDeviceIEDAddr;           //装置IED地址
+
+    QString         strPortB_IP;                //端口B ip地址
+    QString         strPortB_Netmask;           //端口B 子网掩码
+    QString         strPortB_Gateway;           //端口B 默认网关
+
+    QString         strPortC_IP;                //端口C ip地址
+    QString         strPortC_Netmask;           //端口C 子网掩码
+    QString         strPortC_Gateway;           //端口C 默认网关
+
+}BASICITEM,*PBASICITEM;
+
+
 #endif // MAINWINDOW_H
