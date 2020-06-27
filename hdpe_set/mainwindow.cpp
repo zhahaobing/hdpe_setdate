@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    this->resize( QSize( 1200, 750 ));
+    this->resize( QSize( 1800, 1200 ));
 
 
     //这里初始化类成员变量
@@ -30,12 +30,14 @@ MainWindow::MainWindow(QWidget *parent)
     ui->tabWidget->tabsClosable(); //Page有关闭按钮，可被关闭
 
     this->setCentralWidget(ui->tabWidget);
-//    this->setWindowState(Qt::WindowFullScreen); //窗口最大化显示
+    //this->setWindowState(Qt::WindowFullScreen); //窗口最大化显示
     //this->setWindowState(Qt::WindowMaximized); //窗口最大化显示
 //    this->setWindowState(Qt::WindowMinimized); //窗口最大化显示
     this->setAutoFillBackground(true);
 
     g_nFileIndexPool = 0;
+
+    connect(ui->tabWidget,SIGNAL(tabCloseRequested(int)),this,SLOT(removeSubTab(int)));
 }
 
 MainWindow::~MainWindow()
@@ -79,6 +81,7 @@ void MainWindow::on_action_file_triggered()
     if(nullptr != formTable_file)
     {
         ui->tabWidget->setVisible(true);
+        qDebug() << ",file:" << __FILE__ << ",at line:" << __LINE__;
         return;
     }
 
@@ -95,7 +98,6 @@ void MainWindow::on_action_file_triggered()
     //绑定信号和槽函数
     connect(formTable_file, SIGNAL(sendMsgToMain(QString, int)),this,SLOT(recvFromFormTable(QString, int)));
     connect(this, SIGNAL(MainSendMsgToFormTable(QString, int)),formTable_file,SLOT(FormTableRecvFromMain(QString, int)));
-    connect(ui->tabWidget,SIGNAL(tabCloseRequested(int)),this,SLOT(removeSubTab(int)));
 
     formTable_file->setAttribute(Qt::WA_DeleteOnClose); //关闭时自动删除
     //    aTable->setWindowTitle("基于QWidget的窗口，无父窗口，关闭时删除");
@@ -104,6 +106,7 @@ void MainWindow::on_action_file_triggered()
               szFile);
     ui->tabWidget->setCurrentIndex(cur);
     ui->tabWidget->setVisible(true);
+    tabWidgetList.append("formTable_file");
 }
 
 void MainWindow::recvFromFormTable(QString msg, int flag)
@@ -166,7 +169,7 @@ void MainWindow::on_action_help_triggered()
     szInfo += ":zhahaobing@126.com";
     szInfo += "<br>";
     szInfo += tr("版本");
-    szInfo += ":0.0.2";
+    szInfo += ":0.2.0.0";
     szInfo += "<br>";
     szInfo += tr("日期");
     szInfo += ":2020-06-14";
@@ -176,17 +179,18 @@ void MainWindow::on_action_help_triggered()
 
 void MainWindow::removeSubTab(int index)
 {
+    qDebug() << "index=" << index << ",file:" << __FILE__ << ",at line:" << __LINE__;
+
     QWidget *pItemWidget = ui->tabWidget->widget(index);
     pItemWidget->close();
-    qDebug() << "index=" << index << "at line " << __LINE__;
     QString tabName = QString::asprintf("tab%02d", index);
 
-    if(nullptr != formTable_file)
+    if(tabWidgetList[index] == QString::fromLocal8Bit("formTable_file"))
     {
         delete formTable_file;
         formTable_file = nullptr;
-
     }
+    tabWidgetList.removeAt(index);
 
     if(nullptr == formTable_file)
     {

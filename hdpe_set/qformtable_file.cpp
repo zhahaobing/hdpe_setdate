@@ -86,7 +86,7 @@ void QFormTable_File::FormTableRecvFromMain(QString msg, int flag)
     QString szWarnInfo = tr("加载进度:100%");
     ui->label_2->setText(szWarnInfo);
 
-    QMessageBox::information( this, tr("提示"), msg, tr("NO"), tr("YES"), 0, 1 );
+    QMessageBox::information( this, tr("提示"), tr("定值单解析成功！"));
     return;
 }
 
