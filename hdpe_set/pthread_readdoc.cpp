@@ -33,6 +33,7 @@ bool pthread_readdoc::parse_docxfile()
     QAxObject   *workbooks;
     qDebug() << g_szSetdataFilepath << ",at line" << __LINE__ << ".";
     QString     szLogInfo;
+    int     nLineCnt = 0;
 
     if (myword->setControl("Word.Application"))
     {
@@ -58,14 +59,18 @@ bool pthread_readdoc::parse_docxfile()
     QAxObject *paragraphs = document->querySubObject("Paragraphs");
 
     g_snBeginReadSet = 0;
+    nLineCnt    = paragraphs->property("Count").toInt();
     //循环输入每一个paragraph
-    for (int ipar = 1; ipar <= paragraphs->property("Count").toInt(); ipar++)
+    for (int ipar = 1; ipar <= nLineCnt; ipar++)
     {
         QAxObject *lines = paragraphs->querySubObject("Item(QVariant)", ipar);
         QAxObject *line = lines->querySubObject("Range");
         QString str = line->property("Text").toString();
         //QStringList liststr_1;
         //QStringList liststr_2;
+        int nProgressRate   = (100000*ipar)/nLineCnt;
+
+        ReaddocSendMsgToMain(QString::asprintf("%d", nProgressRate), 1);
 
         line->clear();
         delete line;

@@ -146,19 +146,34 @@ void MainWindow::recvFromFormTable(QString msg, int flag)
 
 void MainWindow::recvFromThreaddoc(QString msg, int flag)
 {
-    QString szWarnInfo;
-    if(flag > 16 || flag < 0)
+//    QString szWarnInfo;
+//    if(flag > 16 || flag < 0)
+//    {
+//        szWarnInfo = tr("来自错误定值单窗口的信号！");
+//        QMessageBox::warning(this, "warning", szWarnInfo, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+
+//        return;
+//    }
+
+    switch(flag)
     {
-        szWarnInfo = tr("来自错误定值单窗口的信号！");
-        QMessageBox::warning(this, "warning", szWarnInfo, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+        case 0:
+        {
+            emit MainSendMsgToFormTable(msg, flag);
 
-        return;
-    }
-    if(msg == QString::fromLocal8Bit("over"))
-    {//线程处理结束了，主窗口发消息给QFormTable
-        emit MainSendMsgToFormTable("over", flag);
-    }
+            break;
+        }
+        case 1:
+        {
+            emit MainSendMsgToFormTable(msg, flag);
+            break;
+        }
+        default:
+        {
 
+            break;
+        }
+    }
 }
 
 //帮助按钮

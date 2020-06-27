@@ -17,6 +17,9 @@
    <layout class="QHBoxLayout" name="horizontalLayout_5">
     <item>
      <widget class="QGroupBox" name="groupBox_2">
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;隶书&quot;;</string>
+      </property>
       <property name="title">
        <string/>
       </property>
@@ -32,22 +35,35 @@
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QLabel" name="label_2">
-            <property name="styleSheet">
-             <string notr="true">color: rgb(255, 0, 0);
-font: 16pt &quot;华文楷体&quot;;</string>
-            </property>
             <property name="text">
-             <string>加载进度:</string>
+             <string>文件加载进度:</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QProgressBar" name="progressBar">
+            <property name="value">
+             <number>0</number>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="Line" name="line">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
             </property>
            </widget>
           </item>
           <item>
            <widget class="QLabel" name="label">
+            <property name="autoFillBackground">
+             <bool>true</bool>
+            </property>
             <property name="styleSheet">
              <string notr="true">font: 16pt &quot;隶书&quot;;</string>
             </property>
             <property name="text">
-             <string>当前定值单文件:</string>
+             <string>当前定值单文件:                                                   </string>
             </property>
            </widget>
           </item>
@@ -59,6 +75,12 @@ font: 16pt &quot;华文楷体&quot;;</string>
     </item>
     <item>
      <widget class="QGroupBox" name="groupBox_3">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>550</height>
+       </size>
+      </property>
       <property name="styleSheet">
        <string notr="true">font: 16pt &quot;隶书&quot;;
 background-color: rgb(170, 170, 127);</string>

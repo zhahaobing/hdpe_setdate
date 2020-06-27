@@ -31,6 +31,9 @@ private:
     QStandardItemModel  *theModel;//数据模型
     QItemSelectionModel *theSelection;//Item选择模型
     int                 curIndex;
+    long                g_lProgressMaxNum;
+    long                g_lProgressNum;
+
     Ui::QFormTable_File *ui;
     void display_setdata();
     void closeEvent( QCloseEvent  *event);

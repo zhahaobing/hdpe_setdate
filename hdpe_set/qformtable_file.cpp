@@ -33,6 +33,24 @@ QFormTable_File::QFormTable_File(QWidget *parent) :
     connect(ntimer, SIGNAL(timeout()), this, SLOT(scrollCaption()));
     //ntimer->start(250);
     szProgress = tr("加载进度：");
+
+    QString szWarnInfo = tr("当前定值单文件:");
+    if(80-szWarnInfo.length() > 0) {
+        for(int i=0; i< 80-szWarnInfo.length(); i++)
+        {
+            szWarnInfo += " ";
+        }
+    }
+    ui->label->setText(szWarnInfo);
+    ui->label->setMinimumWidth(500);
+    ui->label->setMaximumWidth(500);
+
+    //进度条初始化为10万
+    g_lProgressMaxNum   = 100000;
+    g_lProgressNum      = 0;
+    ui->progressBar->setRange(0, g_lProgressMaxNum);
+    //ui->progressBar->setMaximumWidth(500);
+    ui->progressBar->setMinimumWidth(500);
 }
 
 QFormTable_File::~QFormTable_File()
@@ -49,6 +67,7 @@ void QFormTable_File::on_action_open_triggered()
     QString aFileName;
     QString szWarnInfo;
     QString szSetdataFileTmp;
+    int     i = 0;
 
     aFileName = QFileDialog::getOpenFileName(this,tr("打开一个定制单word文档"),curPath, \
                                                         "WORD文件(*.doc;*.docx)");
@@ -66,6 +85,12 @@ void QFormTable_File::on_action_open_triggered()
 
     szWarnInfo = tr("当前定值单文件:");
     szWarnInfo += szSetdataFileTmp;
+    if(80-szWarnInfo.length() > 0) {
+        for(int i=0; i< 80-szWarnInfo.length(); i++)
+        {
+            szWarnInfo += " ";
+        }
+    }
     ui->label->setText(szWarnInfo);
 
     //ntimer = new QTimer(this);
@@ -79,14 +104,35 @@ void QFormTable_File::on_action_open_triggered()
 
 void QFormTable_File::FormTableRecvFromMain(QString msg, int flag)
 {
-    //这里把g_mapSetItem的内容显示出来
-    display_setdata();
+    switch(flag)
+    {
+        case 0:
+        {
+            //这里把g_mapSetItem的内容显示出来
+            display_setdata();
 
-    disconnect(ntimer, SIGNAL(timeout()), this, SLOT(scrollCaption()));
-    QString szWarnInfo = tr("加载进度:100%");
-    ui->label_2->setText(szWarnInfo);
+//            disconnect(ntimer, SIGNAL(timeout()), this, SLOT(scrollCaption()));
+//            QString szWarnInfo = tr("加载进度:100%");
+            ui->progressBar->setValue(g_lProgressMaxNum);
 
-    QMessageBox::information( this, tr("提示"), tr("定值单解析成功！"));
+            QMessageBox::information( this, tr("提示"), tr("定值单文件解析结束！"));
+
+            break;
+        }
+        case 1:
+        {
+            int nProgress = msg.toInt();
+            ui->progressBar->setValue(nProgress);
+            qDebug() << "nProgress=" << nProgress << ",file:" << __FILE__ << ",at line:" << __LINE__;
+            break;
+        }
+        default:
+        {
+
+            break;
+        }
+    }
+
     return;
 }
 
@@ -135,7 +181,7 @@ void QFormTable_File::scrollCaption()
     if (curIndex < 0)
         curIndex = isize;
     //qDebug() << curIndex;
-    ui->label_2->setText(szProgress.mid(curIndex--));
+    //ui->label_2->setText(szProgress.mid(curIndex--));
 #endif
 }
 

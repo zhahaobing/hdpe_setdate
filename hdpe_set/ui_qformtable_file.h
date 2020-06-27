@@ -12,12 +12,14 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
+#include <QtWidgets/QFrame>
 #include <QtWidgets/QGroupBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QProgressBar>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
@@ -38,6 +40,8 @@ public:
     QGroupBox *groupBox;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
+    QProgressBar *progressBar;
+    QFrame *line;
     QLabel *label;
     QGroupBox *groupBox_3;
     QVBoxLayout *verticalLayout_8;
@@ -100,6 +104,7 @@ public:
         horizontalLayout_5->setObjectName(QString::fromUtf8("horizontalLayout_5"));
         groupBox_2 = new QGroupBox(centralwidget);
         groupBox_2->setObjectName(QString::fromUtf8("groupBox_2"));
+        groupBox_2->setStyleSheet(QString::fromUtf8("font: 16pt \"\351\232\266\344\271\246\";"));
         verticalLayout = new QVBoxLayout(groupBox_2);
         verticalLayout->setObjectName(QString::fromUtf8("verticalLayout"));
         tableWidget = new QTableWidget(groupBox_2);
@@ -113,13 +118,25 @@ public:
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
         label_2 = new QLabel(groupBox);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setStyleSheet(QString::fromUtf8("color: rgb(255, 0, 0);\n"
-"font: 16pt \"\345\215\216\346\226\207\346\245\267\344\275\223\";"));
 
         horizontalLayout->addWidget(label_2);
 
+        progressBar = new QProgressBar(groupBox);
+        progressBar->setObjectName(QString::fromUtf8("progressBar"));
+        progressBar->setValue(0);
+
+        horizontalLayout->addWidget(progressBar);
+
+        line = new QFrame(groupBox);
+        line->setObjectName(QString::fromUtf8("line"));
+        line->setFrameShape(QFrame::VLine);
+        line->setFrameShadow(QFrame::Sunken);
+
+        horizontalLayout->addWidget(line);
+
         label = new QLabel(groupBox);
         label->setObjectName(QString::fromUtf8("label"));
+        label->setAutoFillBackground(true);
         label->setStyleSheet(QString::fromUtf8("font: 16pt \"\351\232\266\344\271\246\";"));
 
         horizontalLayout->addWidget(label);
@@ -132,6 +149,7 @@ public:
 
         groupBox_3 = new QGroupBox(centralwidget);
         groupBox_3->setObjectName(QString::fromUtf8("groupBox_3"));
+        groupBox_3->setMinimumSize(QSize(180, 550));
         groupBox_3->setStyleSheet(QString::fromUtf8("font: 16pt \"\351\232\266\344\271\246\";\n"
 "background-color: rgb(170, 170, 127);"));
         verticalLayout_8 = new QVBoxLayout(groupBox_3);
@@ -355,8 +373,8 @@ public:
 #endif // QT_CONFIG(tooltip)
         groupBox_2->setTitle(QString());
         groupBox->setTitle(QString());
-        label_2->setText(QCoreApplication::translate("QFormTable_File", "\345\212\240\350\275\275\350\277\233\345\272\246:", nullptr));
-        label->setText(QCoreApplication::translate("QFormTable_File", "\345\275\223\345\211\215\345\256\232\345\200\274\345\215\225\346\226\207\344\273\266:", nullptr));
+        label_2->setText(QCoreApplication::translate("QFormTable_File", "\346\226\207\344\273\266\345\212\240\350\275\275\350\277\233\345\272\246:", nullptr));
+        label->setText(QCoreApplication::translate("QFormTable_File", "\345\275\223\345\211\215\345\256\232\345\200\274\345\215\225\346\226\207\344\273\266:                                                   ", nullptr));
         groupBox_3->setTitle(QString());
         groupBox_6->setTitle(QString());
         label_18->setText(QCoreApplication::translate("QFormTable_File", "\345\217\227\344\273\244\345\215\225\344\275\215\357\274\232", nullptr));
