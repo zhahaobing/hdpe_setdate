@@ -98,56 +98,56 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_6">
             <item>
-             <widget class="QLabel" name="label_18">
+             <widget class="QLabel" name="label_Organization">
               <property name="text">
                <string>受令单位：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_20">
+             <widget class="QLabel" name="label_DeviceID">
               <property name="text">
                <string>设备位号:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_19">
+             <widget class="QLabel" name="label_DevName">
               <property name="text">
                <string>设备名称:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_23">
+             <widget class="QLabel" name="label_DevType">
               <property name="text">
                <string>装置型号：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_24">
+             <widget class="QLabel" name="label_MOdifyDeadline">
               <property name="text">
                <string>更改期限：</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_22">
+             <widget class="QLabel" name="label_DevVersion">
               <property name="text">
                <string>装置版本号:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_17">
+             <widget class="QLabel" name="label_DevSqeNo">
               <property name="text">
                <string>装置序列号:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_21">
+             <widget class="QLabel" name="label_DevIEDAddr">
               <property name="text">
                <string>装置IED地址:</string>
               </property>
@@ -195,21 +195,21 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_2">
             <item>
-             <widget class="QLabel" name="label_13">
+             <widget class="QLabel" name="label_PortB_IP">
               <property name="text">
                <string>IP地址:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_11">
+             <widget class="QLabel" name="label_PortB_Netmask">
               <property name="text">
                <string>子网掩码:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_12">
+             <widget class="QLabel" name="label_PortB_Gateway">
               <property name="text">
                <string>默认网关:</string>
               </property>
@@ -242,21 +242,21 @@ background-color: rgb(170, 170, 127);</string>
           <item>
            <layout class="QVBoxLayout" name="verticalLayout_4">
             <item>
-             <widget class="QLabel" name="label_14">
+             <widget class="QLabel" name="label_PortC_IP">
               <property name="text">
                <string>IP地址:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_15">
+             <widget class="QLabel" name="label_PortC_Netmask">
               <property name="text">
                <string>子网掩码:</string>
               </property>
              </widget>
             </item>
             <item>
-             <widget class="QLabel" name="label_16">
+             <widget class="QLabel" name="label_PortC_Gateway">
               <property name="text">
                <string>默认网关:</string>
               </property>

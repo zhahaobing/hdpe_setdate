@@ -34,6 +34,7 @@ bool pthread_readdoc::parse_docxfile()
     qDebug() << g_szSetdataFilepath << ",at line" << __LINE__ << ".";
     QString     szLogInfo;
     int     nLineCnt = 0;
+    int     nCurLine = 0;
 
     if (myword->setControl("Word.Application"))
     {
@@ -60,6 +61,7 @@ bool pthread_readdoc::parse_docxfile()
 
     g_snBeginReadSet = 0;
     nLineCnt    = paragraphs->property("Count").toInt();
+
     //循环输入每一个paragraph
     for (int ipar = 1; ipar <= nLineCnt; ipar++)
     {
@@ -80,7 +82,16 @@ bool pthread_readdoc::parse_docxfile()
 
         str = remove_enterline(str);
 
-        //qDebug()<< str <<",at line " << __LINE__;
+        qDebug() << ipar << "," << str << ",file:" << __FILE__ << ",at line " << __LINE__;
+
+        if(ipar >= 1 && ipar <= 5)
+        {
+            ReaddocSendMsgToMain(str, ipar+1);
+        }
+        else if(ipar >= 7 && ipar <= 11)
+        {
+            ReaddocSendMsgToMain(str, ipar+1);
+        }
 
         switch(g_snBeginReadSet) {
             case 0:

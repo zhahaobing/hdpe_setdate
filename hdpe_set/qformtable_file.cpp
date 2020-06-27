@@ -67,7 +67,7 @@ void QFormTable_File::on_action_open_triggered()
     QString aFileName;
     QString szWarnInfo;
     QString szSetdataFileTmp;
-    int     i = 0;
+    //int     i = 0;
 
     aFileName = QFileDialog::getOpenFileName(this,tr("打开一个定制单word文档"),curPath, \
                                                         "WORD文件(*.doc;*.docx)");
@@ -124,6 +124,56 @@ void QFormTable_File::FormTableRecvFromMain(QString msg, int flag)
             int nProgress = msg.toInt();
             ui->progressBar->setValue(nProgress);
             qDebug() << "nProgress=" << nProgress << ",file:" << __FILE__ << ",at line:" << __LINE__;
+            break;
+        }
+        case 2:
+        {//受令单位
+            ui->label_Organization->setText(msg);
+            break;
+        }
+        case 3:
+        {//设备位号
+            ui->label_DeviceID->setText(msg);
+            break;
+        }
+        case 4:
+        {//设备名称
+            ui->label_DevName->setText(msg);
+            break;
+        }
+        case 5:
+        {//装置型号
+            ui->label_DevType->setText(msg);
+            break;
+        }
+        case 6:
+        {//更改期限
+            ui->label_MOdifyDeadline->setText(msg);
+            break;
+        }
+        case 8:
+        {//受令单位(值)
+            ui->lineEdit__organization->setText(msg);
+            break;
+        }
+        case 9:
+        {//设备位号(值)
+            ui->lineEdit_DeviceID->setText(msg);
+            break;
+        }
+        case 10:
+        {//设备名称(值)
+            ui->lineEdit_DeviceName->setText(msg);
+            break;
+        }
+        case 11:
+        {//装置型号(值)
+            ui->lineEdit_DeviceType->setText(msg);
+            break;
+        }
+        case 12:
+        {//更改期限(值)
+            ui->lineEdit_DeadLine->setText(msg);
             break;
         }
         default:

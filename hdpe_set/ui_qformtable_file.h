@@ -48,14 +48,14 @@ public:
     QGroupBox *groupBox_6;
     QHBoxLayout *horizontalLayout_4;
     QVBoxLayout *verticalLayout_6;
-    QLabel *label_18;
-    QLabel *label_20;
-    QLabel *label_19;
-    QLabel *label_23;
-    QLabel *label_24;
-    QLabel *label_22;
-    QLabel *label_17;
-    QLabel *label_21;
+    QLabel *label_Organization;
+    QLabel *label_DeviceID;
+    QLabel *label_DevName;
+    QLabel *label_DevType;
+    QLabel *label_MOdifyDeadline;
+    QLabel *label_DevVersion;
+    QLabel *label_DevSqeNo;
+    QLabel *label_DevIEDAddr;
     QVBoxLayout *verticalLayout_7;
     QLineEdit *lineEdit__organization;
     QLineEdit *lineEdit_DeviceID;
@@ -68,9 +68,9 @@ public:
     QGroupBox *groupBox_4;
     QHBoxLayout *horizontalLayout_2;
     QVBoxLayout *verticalLayout_2;
-    QLabel *label_13;
-    QLabel *label_11;
-    QLabel *label_12;
+    QLabel *label_PortB_IP;
+    QLabel *label_PortB_Netmask;
+    QLabel *label_PortB_Gateway;
     QVBoxLayout *verticalLayout_3;
     QLineEdit *lineEdit_PortB_IP;
     QLineEdit *lineEdit_PortB_NetMask;
@@ -78,9 +78,9 @@ public:
     QGroupBox *groupBox_5;
     QHBoxLayout *horizontalLayout_3;
     QVBoxLayout *verticalLayout_4;
-    QLabel *label_14;
-    QLabel *label_15;
-    QLabel *label_16;
+    QLabel *label_PortC_IP;
+    QLabel *label_PortC_Netmask;
+    QLabel *label_PortC_Gateway;
     QVBoxLayout *verticalLayout_5;
     QLineEdit *lineEdit_PortC_IP;
     QLineEdit *lineEdit_PortC_NetMask;
@@ -160,45 +160,45 @@ public:
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
         verticalLayout_6 = new QVBoxLayout();
         verticalLayout_6->setObjectName(QString::fromUtf8("verticalLayout_6"));
-        label_18 = new QLabel(groupBox_6);
-        label_18->setObjectName(QString::fromUtf8("label_18"));
+        label_Organization = new QLabel(groupBox_6);
+        label_Organization->setObjectName(QString::fromUtf8("label_Organization"));
 
-        verticalLayout_6->addWidget(label_18);
+        verticalLayout_6->addWidget(label_Organization);
 
-        label_20 = new QLabel(groupBox_6);
-        label_20->setObjectName(QString::fromUtf8("label_20"));
+        label_DeviceID = new QLabel(groupBox_6);
+        label_DeviceID->setObjectName(QString::fromUtf8("label_DeviceID"));
 
-        verticalLayout_6->addWidget(label_20);
+        verticalLayout_6->addWidget(label_DeviceID);
 
-        label_19 = new QLabel(groupBox_6);
-        label_19->setObjectName(QString::fromUtf8("label_19"));
+        label_DevName = new QLabel(groupBox_6);
+        label_DevName->setObjectName(QString::fromUtf8("label_DevName"));
 
-        verticalLayout_6->addWidget(label_19);
+        verticalLayout_6->addWidget(label_DevName);
 
-        label_23 = new QLabel(groupBox_6);
-        label_23->setObjectName(QString::fromUtf8("label_23"));
+        label_DevType = new QLabel(groupBox_6);
+        label_DevType->setObjectName(QString::fromUtf8("label_DevType"));
 
-        verticalLayout_6->addWidget(label_23);
+        verticalLayout_6->addWidget(label_DevType);
 
-        label_24 = new QLabel(groupBox_6);
-        label_24->setObjectName(QString::fromUtf8("label_24"));
+        label_MOdifyDeadline = new QLabel(groupBox_6);
+        label_MOdifyDeadline->setObjectName(QString::fromUtf8("label_MOdifyDeadline"));
 
-        verticalLayout_6->addWidget(label_24);
+        verticalLayout_6->addWidget(label_MOdifyDeadline);
 
-        label_22 = new QLabel(groupBox_6);
-        label_22->setObjectName(QString::fromUtf8("label_22"));
+        label_DevVersion = new QLabel(groupBox_6);
+        label_DevVersion->setObjectName(QString::fromUtf8("label_DevVersion"));
 
-        verticalLayout_6->addWidget(label_22);
+        verticalLayout_6->addWidget(label_DevVersion);
 
-        label_17 = new QLabel(groupBox_6);
-        label_17->setObjectName(QString::fromUtf8("label_17"));
+        label_DevSqeNo = new QLabel(groupBox_6);
+        label_DevSqeNo->setObjectName(QString::fromUtf8("label_DevSqeNo"));
 
-        verticalLayout_6->addWidget(label_17);
+        verticalLayout_6->addWidget(label_DevSqeNo);
 
-        label_21 = new QLabel(groupBox_6);
-        label_21->setObjectName(QString::fromUtf8("label_21"));
+        label_DevIEDAddr = new QLabel(groupBox_6);
+        label_DevIEDAddr->setObjectName(QString::fromUtf8("label_DevIEDAddr"));
 
-        verticalLayout_6->addWidget(label_21);
+        verticalLayout_6->addWidget(label_DevIEDAddr);
 
 
         horizontalLayout_4->addLayout(verticalLayout_6);
@@ -257,20 +257,20 @@ public:
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
         verticalLayout_2 = new QVBoxLayout();
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
-        label_13 = new QLabel(groupBox_4);
-        label_13->setObjectName(QString::fromUtf8("label_13"));
+        label_PortB_IP = new QLabel(groupBox_4);
+        label_PortB_IP->setObjectName(QString::fromUtf8("label_PortB_IP"));
 
-        verticalLayout_2->addWidget(label_13);
+        verticalLayout_2->addWidget(label_PortB_IP);
 
-        label_11 = new QLabel(groupBox_4);
-        label_11->setObjectName(QString::fromUtf8("label_11"));
+        label_PortB_Netmask = new QLabel(groupBox_4);
+        label_PortB_Netmask->setObjectName(QString::fromUtf8("label_PortB_Netmask"));
 
-        verticalLayout_2->addWidget(label_11);
+        verticalLayout_2->addWidget(label_PortB_Netmask);
 
-        label_12 = new QLabel(groupBox_4);
-        label_12->setObjectName(QString::fromUtf8("label_12"));
+        label_PortB_Gateway = new QLabel(groupBox_4);
+        label_PortB_Gateway->setObjectName(QString::fromUtf8("label_PortB_Gateway"));
 
-        verticalLayout_2->addWidget(label_12);
+        verticalLayout_2->addWidget(label_PortB_Gateway);
 
 
         horizontalLayout_2->addLayout(verticalLayout_2);
@@ -304,20 +304,20 @@ public:
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
         verticalLayout_4 = new QVBoxLayout();
         verticalLayout_4->setObjectName(QString::fromUtf8("verticalLayout_4"));
-        label_14 = new QLabel(groupBox_5);
-        label_14->setObjectName(QString::fromUtf8("label_14"));
+        label_PortC_IP = new QLabel(groupBox_5);
+        label_PortC_IP->setObjectName(QString::fromUtf8("label_PortC_IP"));
 
-        verticalLayout_4->addWidget(label_14);
+        verticalLayout_4->addWidget(label_PortC_IP);
 
-        label_15 = new QLabel(groupBox_5);
-        label_15->setObjectName(QString::fromUtf8("label_15"));
+        label_PortC_Netmask = new QLabel(groupBox_5);
+        label_PortC_Netmask->setObjectName(QString::fromUtf8("label_PortC_Netmask"));
 
-        verticalLayout_4->addWidget(label_15);
+        verticalLayout_4->addWidget(label_PortC_Netmask);
 
-        label_16 = new QLabel(groupBox_5);
-        label_16->setObjectName(QString::fromUtf8("label_16"));
+        label_PortC_Gateway = new QLabel(groupBox_5);
+        label_PortC_Gateway->setObjectName(QString::fromUtf8("label_PortC_Gateway"));
 
-        verticalLayout_4->addWidget(label_16);
+        verticalLayout_4->addWidget(label_PortC_Gateway);
 
 
         horizontalLayout_3->addLayout(verticalLayout_4);
@@ -377,22 +377,22 @@ public:
         label->setText(QCoreApplication::translate("QFormTable_File", "\345\275\223\345\211\215\345\256\232\345\200\274\345\215\225\346\226\207\344\273\266:                                                   ", nullptr));
         groupBox_3->setTitle(QString());
         groupBox_6->setTitle(QString());
-        label_18->setText(QCoreApplication::translate("QFormTable_File", "\345\217\227\344\273\244\345\215\225\344\275\215\357\274\232", nullptr));
-        label_20->setText(QCoreApplication::translate("QFormTable_File", "\350\256\276\345\244\207\344\275\215\345\217\267:", nullptr));
-        label_19->setText(QCoreApplication::translate("QFormTable_File", "\350\256\276\345\244\207\345\220\215\347\247\260:", nullptr));
-        label_23->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\345\236\213\345\217\267\357\274\232", nullptr));
-        label_24->setText(QCoreApplication::translate("QFormTable_File", "\346\233\264\346\224\271\346\234\237\351\231\220\357\274\232", nullptr));
-        label_22->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\347\211\210\346\234\254\345\217\267:", nullptr));
-        label_17->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\345\272\217\345\210\227\345\217\267:", nullptr));
-        label_21->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256IED\345\234\260\345\235\200:", nullptr));
+        label_Organization->setText(QCoreApplication::translate("QFormTable_File", "\345\217\227\344\273\244\345\215\225\344\275\215\357\274\232", nullptr));
+        label_DeviceID->setText(QCoreApplication::translate("QFormTable_File", "\350\256\276\345\244\207\344\275\215\345\217\267:", nullptr));
+        label_DevName->setText(QCoreApplication::translate("QFormTable_File", "\350\256\276\345\244\207\345\220\215\347\247\260:", nullptr));
+        label_DevType->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\345\236\213\345\217\267\357\274\232", nullptr));
+        label_MOdifyDeadline->setText(QCoreApplication::translate("QFormTable_File", "\346\233\264\346\224\271\346\234\237\351\231\220\357\274\232", nullptr));
+        label_DevVersion->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\347\211\210\346\234\254\345\217\267:", nullptr));
+        label_DevSqeNo->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256\345\272\217\345\210\227\345\217\267:", nullptr));
+        label_DevIEDAddr->setText(QCoreApplication::translate("QFormTable_File", "\350\243\205\347\275\256IED\345\234\260\345\235\200:", nullptr));
         groupBox_4->setTitle(QCoreApplication::translate("QFormTable_File", "\347\253\257\345\217\243B", nullptr));
-        label_13->setText(QCoreApplication::translate("QFormTable_File", "IP\345\234\260\345\235\200:", nullptr));
-        label_11->setText(QCoreApplication::translate("QFormTable_File", "\345\255\220\347\275\221\346\216\251\347\240\201:", nullptr));
-        label_12->setText(QCoreApplication::translate("QFormTable_File", "\351\273\230\350\256\244\347\275\221\345\205\263:", nullptr));
+        label_PortB_IP->setText(QCoreApplication::translate("QFormTable_File", "IP\345\234\260\345\235\200:", nullptr));
+        label_PortB_Netmask->setText(QCoreApplication::translate("QFormTable_File", "\345\255\220\347\275\221\346\216\251\347\240\201:", nullptr));
+        label_PortB_Gateway->setText(QCoreApplication::translate("QFormTable_File", "\351\273\230\350\256\244\347\275\221\345\205\263:", nullptr));
         groupBox_5->setTitle(QCoreApplication::translate("QFormTable_File", "\347\253\257\345\217\243C", nullptr));
-        label_14->setText(QCoreApplication::translate("QFormTable_File", "IP\345\234\260\345\235\200:", nullptr));
-        label_15->setText(QCoreApplication::translate("QFormTable_File", "\345\255\220\347\275\221\346\216\251\347\240\201:", nullptr));
-        label_16->setText(QCoreApplication::translate("QFormTable_File", "\351\273\230\350\256\244\347\275\221\345\205\263:", nullptr));
+        label_PortC_IP->setText(QCoreApplication::translate("QFormTable_File", "IP\345\234\260\345\235\200:", nullptr));
+        label_PortC_Netmask->setText(QCoreApplication::translate("QFormTable_File", "\345\255\220\347\275\221\346\216\251\347\240\201:", nullptr));
+        label_PortC_Gateway->setText(QCoreApplication::translate("QFormTable_File", "\351\273\230\350\256\244\347\275\221\345\205\263:", nullptr));
         toolBar->setWindowTitle(QCoreApplication::translate("QFormTable_File", "toolBar", nullptr));
     } // retranslateUi
 
