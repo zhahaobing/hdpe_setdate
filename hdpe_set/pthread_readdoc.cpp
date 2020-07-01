@@ -1,6 +1,7 @@
 #include    <QMap>
 #include    <QAxObject>
 #include    <QDebug>
+#include    <ole2.h>
 #include    "pthread_readdoc.h"
 #include    "mainwindow.h"
 
@@ -30,11 +31,17 @@ ERR_RESULT:
 bool pthread_readdoc::parse_docxfile()
 {
     QAxObject   *myword     = new QAxObject(this);
+    HRESULT ret = OleInitialize(0);
     QAxObject   *workbooks;
     qDebug() << g_szSetdataFilepath << ",at line" << __LINE__ << ".";
     QString     szLogInfo;
     int     nLineCnt = 0;
     int     nCurLine = 0;
+
+    if(ret!=S_OK && ret != S_FALSE)
+    {
+        return false;
+    }
 
     if (myword->setControl("Word.Application"))
     {
@@ -92,6 +99,29 @@ bool pthread_readdoc::parse_docxfile()
         {
             ReaddocSendMsgToMain(str, ipar+1);
         }
+
+        if(str == QString::fromLocal8Bit("装置版本号"))
+        {//装置版本号
+            QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+            QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+            QString str_tmp = line_tmp->property("Text").toString();
+            ReaddocSendMsgToMain(str_tmp, 13);
+        }
+        else if(str == QString::fromLocal8Bit("装置序列号"))
+        {//装置序列号
+            QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+            QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+            QString str_tmp = line_tmp->property("Text").toString();
+            ReaddocSendMsgToMain(str_tmp, 14);
+        }
+        else if(str == QString::fromLocal8Bit("装置IED地址"))
+        {//装置IED地址
+            QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+            QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+            QString str_tmp = line_tmp->property("Text").toString();
+            ReaddocSendMsgToMain(str_tmp, 15);
+        }
+
 
         switch(g_snBeginReadSet) {
             case 0:
@@ -259,6 +289,7 @@ bool pthread_readdoc::parse_docxfile()
     //关闭Document
     document->dynamicCall("Close (boolean)", false);
     myword->dynamicCall("Quit()");
+    OleUninitialize();
     g_snBeginReadSet = 0;
 
     QMap<QString, SETITEM>::const_iterator iter_column;

@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
     QString wTitle = "HDPE定值计算专用软件-";
     wTitle += buildDate.toString("yyyyMMdd") + buildTime.toString("hhmm");
     w.setWindowTitle(wTitle);
-
-    w.show();
+    w.showMaximized();
+    //w.show();
     return a.exec();
 }

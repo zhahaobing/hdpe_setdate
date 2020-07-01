@@ -176,6 +176,21 @@ void QFormTable_File::FormTableRecvFromMain(QString msg, int flag)
             ui->lineEdit_DeadLine->setText(msg);
             break;
         }
+        case 13:
+        {//装置版本号
+            ui->lineEdit_DeviceVersionNo->setText(msg);
+            break;
+        }
+        case 14:
+        {//装置序列号
+            ui->lineEdit_DeviceSQE->setText(msg);
+            break;
+        }
+        case 15:
+        {//装置IED地址
+            ui->lineEdit_DeviceIEDAddr->setText(msg);
+            break;
+        }
         default:
         {
 

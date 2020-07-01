@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    this->resize( QSize( 1800, 1200 ));
+    //this->resize( QSize( 1800, 1200 ));
 
     //这里初始化类成员变量
     picFileIndex = 0;
@@ -183,9 +183,14 @@ void MainWindow::recvFromThreaddoc(QString msg, int flag)
             emit MainSendMsgToFormTable(msg, flag);
             break;
         }
+        case 13:
+        {//装置版本号
+            emit MainSendMsgToFormTable(msg, flag);
+            break;
+        }
         default:
         {
-
+            emit MainSendMsgToFormTable(msg, flag);
             break;
         }
     }
