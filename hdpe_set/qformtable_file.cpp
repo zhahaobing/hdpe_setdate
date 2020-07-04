@@ -191,6 +191,44 @@ void QFormTable_File::FormTableRecvFromMain(QString msg, int flag)
             ui->lineEdit_DeviceIEDAddr->setText(msg);
             break;
         }
+        case 16:
+        {//第1个端口的端口名
+            //ui->lineEdit_DeviceIEDAddr->setText(msg);
+            ui->groupBox_4->setTitle(msg);
+            break;
+        }
+        case 20:
+        {//第1个IP地址
+            ui->lineEdit_PortB_IP->setText(msg);
+            break;
+        }
+        case 21:
+        {//第2个IP地址
+            ui->lineEdit_PortC_IP->setText(msg);
+            break;
+        }
+        case 22:
+        {//第1个子网掩码
+            ui->lineEdit_PortB_NetMask->setText(msg);
+            break;
+        }
+        case 23:
+        {//第2个子网掩码
+            ui->lineEdit_PortC_NetMask->setText(msg);
+            break;
+        }
+        case 24:
+        {//第1个默认网关
+            ui->lineEdit_PortB_Gateway->setText(msg);
+            break;
+        }
+        case 25:
+        {//第2个默认网关
+            ui->lineEdit_PortC_Gateway->setText(msg);
+            break;
+        }
+
+
         default:
         {
 

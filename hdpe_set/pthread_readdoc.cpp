@@ -36,7 +36,11 @@ bool pthread_readdoc::parse_docxfile()
     qDebug() << g_szSetdataFilepath << ",at line" << __LINE__ << ".";
     QString     szLogInfo;
     int     nLineCnt = 0;
-    int     nCurLine = 0;
+    //int     nCurLine = 0;
+    int     nComargs_flag = 0;      //通讯参数的标志
+    int     ip_flag = 0;            //ip地址的标志
+    int     netmask_flag = 0;        //子网掩码的标志
+    int     gateway_flag = 0;        //子网掩码的标志
 
     if(ret!=S_OK && ret != S_FALSE)
     {
@@ -121,6 +125,76 @@ bool pthread_readdoc::parse_docxfile()
             QString str_tmp = line_tmp->property("Text").toString();
             ReaddocSendMsgToMain(str_tmp, 15);
         }
+
+        //added by zhahaobing for read communication args 2020.07.04 started+++
+        if(nComargs_flag == 1)
+        {
+            if(str == QString::fromLocal8Bit("IP地址"))
+            {//初始化第一个IP地址
+                QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+                QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+                QString str_tmp = line_tmp->property("Text").toString();
+                if(ip_flag <= 0)
+                {
+                    ReaddocSendMsgToMain(str_tmp, 20);
+                    ip_flag = 1;
+                }
+                else
+                {
+                    ReaddocSendMsgToMain(str_tmp, 21);
+                }
+
+                //第2个端口的端口名
+                lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+2);
+                line_tmp = lines_tmp->querySubObject("Range");
+                str_tmp = line_tmp->property("Text").toString();
+                ReaddocSendMsgToMain(str_tmp, 17);
+            }
+
+            if(str == QString::fromLocal8Bit("子网掩码"))
+            {
+                QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+                QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+                QString str_tmp = line_tmp->property("Text").toString();
+                if(netmask_flag <= 0)
+                {
+                    ReaddocSendMsgToMain(str_tmp, 22);
+                    netmask_flag = 1;
+                }
+                else
+                {
+                    ReaddocSendMsgToMain(str_tmp, 23);
+                }
+            }
+
+            if(str == QString::fromLocal8Bit("默认网关"))
+            {
+                QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+                QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+                QString str_tmp = line_tmp->property("Text").toString();
+                if(gateway_flag <= 0)
+                {
+                    ReaddocSendMsgToMain(str_tmp, 24);
+                    gateway_flag = 1;
+                }
+                else
+                {
+                    ReaddocSendMsgToMain(str_tmp, 25);
+                }
+            }
+        }
+        if(str == QString::fromLocal8Bit("通讯参数"))
+        {
+            nComargs_flag = 1;
+            //if(str == QString::fromLocal8Bit("") && ip_flag == 2)
+            //{//初始化第1个端口的名字
+                QAxObject *lines_tmp = paragraphs->querySubObject("Item(QVariant)", ipar+1);
+                QAxObject *line_tmp = lines_tmp->querySubObject("Range");
+                QString str_tmp = line_tmp->property("Text").toString();
+                ReaddocSendMsgToMain(str_tmp, 16);
+            //}
+        }
+        //added by zhahaobing for 读取通信参数 2020.07.04 started+++
 
 
         switch(g_snBeginReadSet) {
