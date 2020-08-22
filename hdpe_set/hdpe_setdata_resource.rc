@@ -1,6 +1,6 @@
 #include <windows.h>
 
-IDI_ICON1	ICON	DISCARDABLE	"E:\\code\\qt_project\\hdpe_setdata\\hdpe_set\\HDPE.ico"
+IDI_ICON1	ICON	DISCARDABLE	"D:\\code\\qt_project\\hdpe_setdate\\hdpe_set\\HDPE.ico"
 
 VS_VERSION_INFO VERSIONINFO
 	FILEVERSION 0,2,0,0
