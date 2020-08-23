@@ -20,22 +20,28 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    basic_info.cpp \
     log_windows.cpp \
     main.cpp \
     mainwindow.cpp \
     pthread_readdoc.cpp \
-    qformtable_file.cpp
+    qformtable_file.cpp \
+    set_mainwindow.cpp
 
 HEADERS += \
+    basic_info.h \
     log_windows.h \
     mainwindow.h \
     pthread_readdoc.h \
-    qformtable_file.h
+    qformtable_file.h \
+    set_mainwindow.h
 
 FORMS += \
+    basic_info.ui \
     log_windows.ui \
     mainwindow.ui \
-    qformtable_file.ui
+    qformtable_file.ui \
+    set_mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

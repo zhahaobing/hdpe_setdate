@@ -1,10 +1,14 @@
+release/basic_info.o
 release/log_windows.o
 release/main.o
 release/mainwindow.o
 release/pthread_readdoc.o
 release/qformtable_file.o
+release/set_mainwindow.o
 release/qrc_rec.o
+release/moc_basic_info.o
 release/moc_log_windows.o
 release/moc_mainwindow.o
 release/moc_pthread_readdoc.o
 release/moc_qformtable_file.o
+release/moc_set_mainwindow.o

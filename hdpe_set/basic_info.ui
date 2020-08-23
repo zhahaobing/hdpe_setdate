@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>BASIC_INFO</class>
+ <widget class="QMainWindow" name="BASIC_INFO">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="minimumSize">
+       <size>
+        <width>180</width>
+        <height>550</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 16pt &quot;隶书&quot;;
+background-color: rgb(170, 170, 127);</string>
+      </property>
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_8">
+       <item>
+        <widget class="QGroupBox" name="groupBox_6">
+         <property name="title">
+          <string/>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_4">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_6">
+            <item>
+             <widget class="QLabel" name="label_Organization">
+              <property name="text">
+               <string>受令单位：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DeviceID">
+              <property name="text">
+               <string>设备位号:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DevName">
+              <property name="text">
+               <string>设备名称:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DevType">
+              <property name="text">
+               <string>装置型号：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_MOdifyDeadline">
+              <property name="text">
+               <string>更改期限：</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DevVersion">
+              <property name="text">
+               <string>装置版本号:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DevSqeNo">
+              <property name="text">
+               <string>装置序列号:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_DevIEDAddr">
+              <property name="text">
+               <string>装置IED地址:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_7">
+            <item>
+             <widget class="QLineEdit" name="lineEdit__organization"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceID"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceName"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceType"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeadLine"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceVersionNo"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceSQE"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_DeviceIEDAddr"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_4">
+         <property name="title">
+          <string>端口B</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_2">
+            <item>
+             <widget class="QLabel" name="label_PortB_IP">
+              <property name="text">
+               <string>IP地址:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_PortB_Netmask">
+              <property name="text">
+               <string>子网掩码:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_PortB_Gateway">
+              <property name="text">
+               <string>默认网关:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortB_IP"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortB_NetMask"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortB_Gateway"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item>
+        <widget class="QGroupBox" name="groupBox_5">
+         <property name="title">
+          <string>端口C</string>
+         </property>
+         <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <widget class="QLabel" name="label_PortC_IP">
+              <property name="text">
+               <string>IP地址:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_PortC_Netmask">
+              <property name="text">
+               <string>子网掩码:</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QLabel" name="label_PortC_Gateway">
+              <property name="text">
+               <string>默认网关:</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_5">
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortC_IP"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortC_NetMask"/>
+            </item>
+            <item>
+             <widget class="QLineEdit" name="lineEdit_PortC_Gateway"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>800</width>
+     <height>26</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

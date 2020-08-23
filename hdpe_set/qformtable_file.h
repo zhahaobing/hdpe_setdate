@@ -39,7 +39,7 @@ private:
     void closeEvent( QCloseEvent  *event);
 
 signals:
-    void sendMsgToMain(QString msg, int clo);//子线程要发射信号给主窗口
+    void sendMsgToMain(QString msg, int clo);
 
 };
 

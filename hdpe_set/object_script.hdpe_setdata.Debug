@@ -1,10 +1,14 @@
+debug/basic_info.o
 debug/log_windows.o
 debug/main.o
 debug/mainwindow.o
 debug/pthread_readdoc.o
 debug/qformtable_file.o
+debug/set_mainwindow.o
 debug/qrc_rec.o
+debug/moc_basic_info.o
 debug/moc_log_windows.o
 debug/moc_mainwindow.o
 debug/moc_pthread_readdoc.o
 debug/moc_qformtable_file.o
+debug/moc_set_mainwindow.o

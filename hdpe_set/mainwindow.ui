@@ -40,7 +40,7 @@
      <x>0</x>
      <y>0</y>
      <width>800</width>
-     <height>17</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
@@ -48,6 +48,9 @@
   <widget class="QToolBar" name="toolBar">
    <property name="windowTitle">
     <string>toolBar</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextUnderIcon</enum>
    </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
@@ -63,11 +66,13 @@
    <addaction name="separator"/>
    <addaction name="action_help"/>
    <addaction name="separator"/>
+   <addaction name="action_exit"/>
+   <addaction name="separator"/>
   </widget>
   <action name="action_file">
    <property name="icon">
     <iconset resource="rec.qrc">
-     <normaloff>:/images/images/Doc.ico</normaloff>:/images/images/Doc.ico</iconset>
+     <normaloff>:/images/images/school_work_icon_homework_128px_25925_easyicon.net.ico</normaloff>:/images/images/school_work_icon_homework_128px_25925_easyicon.net.ico</iconset>
    </property>
    <property name="text">
     <string>文件</string>
@@ -110,6 +115,18 @@
    </property>
    <property name="toolTip">
     <string>帮助</string>
+   </property>
+  </action>
+  <action name="action_exit">
+   <property name="icon">
+    <iconset resource="rec.qrc">
+     <normaloff>:/images/images/power_off.ico</normaloff>:/images/images/power_off.ico</iconset>
+   </property>
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="toolTip">
+    <string>退出本软件</string>
    </property>
   </action>
  </widget>

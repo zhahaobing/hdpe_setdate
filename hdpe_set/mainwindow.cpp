@@ -4,6 +4,7 @@
 #include    <QDebug>
 #include    <QTime>
 #include    <QTimer>
+#include    <QCloseEvent>
 #include    "mainwindow.h"
 #include    "ui_mainwindow.h"
 
@@ -24,6 +25,7 @@ MainWindow::MainWindow(QWidget *parent)
     picFileIndex = 0;
     tabWidgetList.clear();
     formTable_file = nullptr;
+    win_setmain = nullptr;
 
     ui->tabWidget->setVisible(false);
     ui->tabWidget->clear();//清除所有页面
@@ -46,6 +48,12 @@ MainWindow::~MainWindow()
     {
         delete formTable_file;
     }
+
+    if(nullptr != win_setmain)
+    {
+        delete win_setmain;
+    }
+
     delete ui;
 }
 
@@ -78,6 +86,37 @@ void MainWindow::on_action_file_triggered()
 {
     QString szWarnInfo;
 
+    if(nullptr != win_setmain)
+    {
+        ui->tabWidget->setVisible(true);
+        qDebug() << ",file:" << __FILE__ << ",at line:" << __LINE__;
+        return;
+    }
+
+    win_setmain = new SET_MAINWINDOW(this);
+
+
+//    if(i >= 16)
+//    {
+//        szWarnInfo = tr("最多只允许同时打开16个定值单文件窗口！");
+//        QMessageBox::warning(this, "warning", szWarnInfo, QMessageBox::Yes | QMessageBox::No, QMessageBox::Yes);
+//        return;
+//    }
+
+    //绑定信号和槽函数
+    connect(win_setmain, SIGNAL(sendMsgToMain(QString, int)),this,SLOT(recvFromFormTable(QString, int)));
+    connect(this, SIGNAL(MainSendMsgToFormTable(QString, int)),win_setmain,SLOT(FormTableRecvFromMain(QString, int)));
+
+    win_setmain->setAttribute(Qt::WA_DeleteOnClose); //关闭时自动删除
+    //    aTable->setWindowTitle("基于QWidget的窗口，无父窗口，关闭时删除");
+    QString szFile = tr("定值单文件");
+    int cur=ui->tabWidget->addTab(win_setmain,
+              szFile);
+    ui->tabWidget->setCurrentIndex(cur);
+    ui->tabWidget->setVisible(true);
+    tabWidgetList.append("win_setmain");
+
+#if 0
     if(nullptr != formTable_file)
     {
         ui->tabWidget->setVisible(true);
@@ -107,6 +146,8 @@ void MainWindow::on_action_file_triggered()
     ui->tabWidget->setCurrentIndex(cur);
     ui->tabWidget->setVisible(true);
     tabWidgetList.append("formTable_file");
+#endif
+
 }
 
 void MainWindow::recvFromFormTable(QString msg, int flag)
@@ -178,6 +219,11 @@ void MainWindow::removeSubTab(int index)
         delete formTable_file;
         formTable_file = nullptr;
     }
+    else if(tabWidgetList[index] == QString::fromLocal8Bit("win_setmain"))
+    {
+        delete win_setmain;
+        win_setmain = nullptr;
+    }
     tabWidgetList.removeAt(index);
 
     if(nullptr == formTable_file)
@@ -185,6 +231,33 @@ void MainWindow::removeSubTab(int index)
         ui->tabWidget->setVisible(false);
         ui->tabWidget->clear();//清除所有页面
         tabWidgetList.clear();
+    }
+    if(nullptr == win_setmain)
+    {
+        ui->tabWidget->setVisible(false);
+        ui->tabWidget->clear();//清除所有页面
+        tabWidgetList.clear();
+    }
 
+}
+
+//退出本软件
+void MainWindow::on_action_exit_triggered()
+{
+    this->close();
+}
+
+//退出本软件
+void MainWindow::closeEvent( QCloseEvent * event)
+{
+    switch( QMessageBox::information( this, tr("提示"), tr("宁确定要退出麽?"), tr("是"), tr("否"), 0, 1 ) )
+    {
+        case 0:
+            event->accept();
+            break;
+        case 1:
+        default:
+            event->ignore();
+            break;
     }
 }

@@ -28,6 +28,7 @@ public:
     QAction *action_database;
     QAction *action_log;
     QAction *action_help;
+    QAction *action_exit;
     QWidget *centralwidget;
     QTabWidget *tabWidget;
     QMenuBar *menubar;
@@ -42,7 +43,7 @@ public:
         action_file = new QAction(MainWindow);
         action_file->setObjectName(QString::fromUtf8("action_file"));
         QIcon icon;
-        icon.addFile(QString::fromUtf8(":/images/images/Doc.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QString::fromUtf8(":/images/images/school_work_icon_homework_128px_25925_easyicon.net.ico"), QSize(), QIcon::Normal, QIcon::Off);
         action_file->setIcon(icon);
         action_database = new QAction(MainWindow);
         action_database->setObjectName(QString::fromUtf8("action_database"));
@@ -59,6 +60,11 @@ public:
         QIcon icon3;
         icon3.addFile(QString::fromUtf8(":/images/images/about.ico"), QSize(), QIcon::Normal, QIcon::Off);
         action_help->setIcon(icon3);
+        action_exit = new QAction(MainWindow);
+        action_exit->setObjectName(QString::fromUtf8("action_exit"));
+        QIcon icon4;
+        icon4.addFile(QString::fromUtf8(":/images/images/power_off.ico"), QSize(), QIcon::Normal, QIcon::Off);
+        action_exit->setIcon(icon4);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         tabWidget = new QTabWidget(centralwidget);
@@ -69,13 +75,14 @@ public:
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName(QString::fromUtf8("menubar"));
-        menubar->setGeometry(QRect(0, 0, 800, 17));
+        menubar->setGeometry(QRect(0, 0, 800, 26));
         MainWindow->setMenuBar(menubar);
         statusbar = new QStatusBar(MainWindow);
         statusbar->setObjectName(QString::fromUtf8("statusbar"));
         MainWindow->setStatusBar(statusbar);
         toolBar = new QToolBar(MainWindow);
         toolBar->setObjectName(QString::fromUtf8("toolBar"));
+        toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
         MainWindow->addToolBar(Qt::TopToolBarArea, toolBar);
 
         toolBar->addAction(action_file);
@@ -85,6 +92,8 @@ public:
         toolBar->addAction(action_log);
         toolBar->addSeparator();
         toolBar->addAction(action_help);
+        toolBar->addSeparator();
+        toolBar->addAction(action_exit);
         toolBar->addSeparator();
 
         retranslateUi(MainWindow);
@@ -113,6 +122,10 @@ public:
         action_help->setText(QCoreApplication::translate("MainWindow", "\345\205\263\344\272\216", nullptr));
 #if QT_CONFIG(tooltip)
         action_help->setToolTip(QCoreApplication::translate("MainWindow", "\345\270\256\345\212\251", nullptr));
+#endif // QT_CONFIG(tooltip)
+        action_exit->setText(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272", nullptr));
+#if QT_CONFIG(tooltip)
+        action_exit->setToolTip(QCoreApplication::translate("MainWindow", "\351\200\200\345\207\272\346\234\254\350\275\257\344\273\266", nullptr));
 #endif // QT_CONFIG(tooltip)
         toolBar->setWindowTitle(QCoreApplication::translate("MainWindow", "toolBar", nullptr));
     } // retranslateUi

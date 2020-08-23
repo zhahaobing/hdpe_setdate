@@ -5,6 +5,7 @@
 #include    <QFileDialog>
 #include    "qformtable_file.h"
 #include    "pthread_readdoc.h"
+#include    "set_mainwindow.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -27,6 +28,10 @@ private slots:
 
     void    removeSubTab(int index);
 
+    void on_action_exit_triggered();
+
+    void closeEvent( QCloseEvent *event);
+
 private:
     Ui::MainWindow *ui;
     int     picFileIndex = 0;
@@ -34,6 +39,7 @@ private:
 
     pthread_readdoc     *pHandleDocx;
     QFormTable_File     *formTable_file;
+    SET_MAINWINDOW      *win_setmain;
     void    paintEvent(QPaintEvent *event);
 
 signals:

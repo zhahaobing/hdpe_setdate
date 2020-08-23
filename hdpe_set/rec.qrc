@@ -52,5 +52,9 @@
         <file>images/back18.jpg</file>
         <file>images/back19.jpg</file>
         <file>images/back20.jpg</file>
+        <file>images/p01.ico</file>
+        <file>images/power_off.ico</file>
+        <file>images/s02.ico</file>
+        <file>images/school_work_icon_homework_128px_25925_easyicon.net.ico</file>
     </qresource>
 </RCC>
